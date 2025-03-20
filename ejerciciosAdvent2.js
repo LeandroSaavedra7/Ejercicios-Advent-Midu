@@ -26,8 +26,11 @@
 // ********
 
 
-const nombres = ["midu"];
-var arrayVacio = [];
+const nombres = ["miduscapo"];
+var cuadroCompleto = [];
+var marco = [];
+var papel = "*";
+var espacio = " ";
 
 function encuadrar(nombres) {
 
@@ -35,29 +38,19 @@ function encuadrar(nombres) {
 
         var nombre = nombres[i];
         var nombreLargo = nombre.length + 4;
-       
 
         for (let j = 0; j < nombreLargo; j++) {
 
-            if (j <= nombreLargo) {
-
-                arrayVacio = arrayVacio + "*";
-            }
-
+            marco = marco + papel;
         }
 
+        var nombreConEspacio = papel + espacio + nombre + espacio + papel;
 
+        console.log(marco);
+        console.log(nombreConEspacio);
+        console.log(marco);
 
-
-
-
-
-
-
-
-
-        
-        return arrayVacio;
+        return 
     }
 }
 const resultado = encuadrar(nombres);
