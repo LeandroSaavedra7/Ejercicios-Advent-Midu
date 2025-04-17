@@ -26,7 +26,7 @@
 // ********
 
 
-const nombres = ["miduscapo", "midu"];
+const nombres = ["midu", "probando", "tuv"];
 
 var papel = "*";
 var envoltorio = "";
@@ -34,29 +34,37 @@ var cuadroNom = "";
 
 function encuadrar(nombres) {
 
-    for (let i = 1; i < nombres.length; i++) {
+    var nombreMasLargo = "";
+
+
+    for (let i = 0; i < nombres.length; i++) {
 
         var nombre = nombres[i];
-        var primera = nombres[0];
-        var nombreMasLargo;
 
-        if (nombre.length < primera.length) {
 
-            nombreMasLargo = primera;
+        if (nombre.length >= nombreMasLargo.length) {
 
-        } else {
             nombreMasLargo = nombre;
         }
-        for (let j = 0; j < nombreMasLargo.length; j++) {
+    }
 
-            envoltorio = envoltorio + papel;
-        }
-        cuadroNom = primera + cuadroNom + " " + nombre;
+    for (let j = 0; j < nombreMasLargo.length + 4; j++) {
+
+        envoltorio = envoltorio + papel;
+    }
+
+    for (let k = 0; k < nombres.length; k++) {
+        var nombre = nombres[k];
+        var espacio = nombreMasLargo.length - nombre.length + 1;
+        cuadroNom = cuadroNom + "* " + nombre + " ".repeat(espacio) + "*\n";
 
     }
-    var cuadroFinal = envoltorio + cuadroNom + envoltorio;
+
+
+     var cuadroFinal = envoltorio + "\n" + cuadroNom + envoltorio;
 
     return cuadroFinal
 }
 const resultado = encuadrar(nombres);
 console.log(resultado);
+
