@@ -60,11 +60,14 @@ function encuadrar(nombres) {
 
     }
 
-
      var cuadroFinal = envoltorio + "\n" + cuadroNom + envoltorio;
 
     return cuadroFinal
 }
 const resultado = encuadrar(nombres);
 console.log(resultado);
+
+
+
+
 
