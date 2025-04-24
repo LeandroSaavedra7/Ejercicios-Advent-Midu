@@ -26,7 +26,7 @@
 
 // organizeInventory(inventory)
 
-// // Resultado esperado:
+// // Resultado esperado: 
 // // {
 // //   toys: {
 // //     doll: 5,
@@ -37,20 +37,54 @@
 // //     racket: 4
 // //   }
 
-// const inventory2 = [
-//   { name: 'book', quantity: 10, category: 'education' },
-//   { name: 'book', quantity: 5, category: 'education' },
-//   { name: 'paint', quantity: 3, category: 'art' }
-// ]
 
-// organizeInventory(inventory2)
+// ESTO ES UN OBJETO JSON QUE TIENE DOS OBJETOS JSON ADENTRO QUE SON TOYS Y SPORTS Y ESTOS ADENTRO TIENE OTRAS PROPERTYS QUE SON DOLL
+// Y CAR Y EN EL OBJETO SPORTS LAS PROPERTYS SON BALL Y RACKET. 
 
-// // Resultado esperado:
-// // {
-// //   education: {
-// //     book: 15
-// //   },
-// //   art: {
-// //     paint: 3
-// //   }
-// // }
+// Recordemos que cuando conozco el valor de la property puedo usar el . (PUNTO) para poder trabajar con esa property y valor, pero en cambio
+// si no sabemos el valor de esa property para trabajar con la misma tenemos que usar el corchete por ejemplo  resultadoJson[regaloCategoria] = {}; y para
+// poder usar el corchete, dentro de los corchetes si o si tenemos que usar una variable ya declarada
+
+
+
+const inventory = [
+    { name: 'doll', quantity: 5, category: 'toys' },
+    { name: 'car', quantity: 3, category: 'toys' },
+    { name: 'ball', quantity: 2, category: 'sports' },
+    { name: 'car', quantity: 2, category: 'toys' },
+    { name: 'racket', quantity: 4, category: 'sports' }
+]
+
+function ordenarRegalos() {
+
+    var resultadoJson = {};
+
+
+    for (let i = 0; i < inventory.length; i++) {
+
+        var regalo = inventory[i];
+        var regaloCategoria = regalo.category;
+
+        if (resultadoJson[regaloCategoria] == undefined) {
+
+            console.log(regaloCategoria + " categoria no encontrada");
+
+        } else {
+
+
+            console.log(regaloCategoria + " categoria encontrada");
+
+        }
+        console.log("---")
+
+        resultadoJson[regaloCategoria] = {};
+
+    }
+
+    console.log(resultadoJson);
+
+}
+
+ordenarRegalos();
+
+//console.log(resultadoFInal);
