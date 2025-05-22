@@ -48,6 +48,7 @@
 
 
 const inventory = [
+
     { name: 'doll', quantity: 5, category: 'toys' },
     { name: 'car', quantity: 3, category: 'toys' },
     { name: 'ball', quantity: 2, category: 'sports' },
@@ -58,33 +59,41 @@ const inventory = [
 function ordenarRegalos() {
 
     var resultadoJson = {};
+    var objetoPrueba = {};
+    var objetoPruebaDos = {};
 
+    // para comparar todos los elementos del array hay que hacer dos for y recorrerlos, mietnras vamos guardando la info
+    // en variables de los valores ya comparados    
 
     for (let i = 0; i < inventory.length; i++) {
 
         var regalo = inventory[i];
+        var regaloName = regalo.name;
+        var regaloQuantity = regalo.quantity;
         var regaloCategoria = regalo.category;
 
-        if (resultadoJson[regaloCategoria] == undefined) {
+        for (let j = i + 1; j < inventory.length; j++) {
+            var regalo2 = inventory[j];
 
-            console.log(regaloCategoria + " categoria no encontrada");
+            var regalo2Name = regalo2.name;
+            var regalo2Quantity = regalo2.quantity;
 
-        } else {
+            if (regaloName !== regalo2Name) {
 
+                objetoPrueba[regaloName] = regaloQuantity;
 
-            console.log(regaloCategoria + " categoria encontrada");
+            } else {
 
+                regalo2Quantity = regaloQuantity + regalo2Quantity;
+                objetoPruebaDos[regalo2Name] = regalo2Quantity;
+            }
+            console.log(objetoPrueba);
+            console.log(objetoPruebaDos);
         }
-        console.log("---")
-
         resultadoJson[regaloCategoria] = {};
-
     }
-
     console.log(resultadoJson);
-
 }
+var resultadoFInal = ordenarRegalos();
 
-ordenarRegalos();
-
-//console.log(resultadoFInal);
+console.log(resultadoFInal);
