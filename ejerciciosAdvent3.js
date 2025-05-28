@@ -70,30 +70,30 @@ function ordenarRegalos() {
         var regalo = inventory[i];
         var regaloName = regalo.name;
         var regaloQuantity = regalo.quantity;
-        var regaloCategoria = regalo.category;
+        var regaloCategory = regalo.category;
 
         for (let j = i + 1; j < inventory.length; j++) {
             var regalo2 = inventory[j];
 
             var regalo2Name = regalo2.name;
             var regalo2Quantity = regalo2.quantity;
+            var regalo2Category = regalo2.category;
 
-            if (regaloName !== regalo2Name) {
+            if (regaloCategory === regalo2Category) {
 
-                objetoPrueba[regaloName] = regaloQuantity;
 
-            } else {
+                objetoPrueba[regaloCategory][regaloName] = objetoPrueba[regaloCategory][regaloName] + regalo2Quantity;
 
-                regalo2Quantity = regaloQuantity + regalo2Quantity;
-                objetoPruebaDos[regalo2Name] = regalo2Quantity;
+                console.log(objetoPrueba);
             }
-            console.log(objetoPrueba);
-            console.log(objetoPruebaDos);
         }
-        resultadoJson[regaloCategoria] = {};
+
+        console.log(objetoPrueba);
     }
-    console.log(resultadoJson);
+    resultadoJson[regaloCategoria] = {};
 }
+console.log(resultadoJson);
+
 var resultadoFInal = ordenarRegalos();
 
 console.log(resultadoFInal);
