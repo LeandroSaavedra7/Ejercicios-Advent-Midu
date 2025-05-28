@@ -71,29 +71,52 @@ function ordenarRegalos() {
         var regaloName = regalo.name;
         var regaloQuantity = regalo.quantity;
         var regaloCategory = regalo.category;
+        // objetoPruebaDos[regalo.category] = { [regaloName]: regaloQuantity };
 
-        for (let j = i + 1; j < inventory.length; j++) {
-            var regalo2 = inventory[j];
+        if (objetoPruebaDos[regalo.category]) {
 
-            var regalo2Name = regalo2.name;
-            var regalo2Quantity = regalo2.quantity;
-            var regalo2Category = regalo2.category;
+            if (objetoPruebaDos[regaloCategory][regaloName]) {
 
-            if (regaloCategory === regalo2Category) {
+                objetoPruebaDos[regalo.category][regaloName] = objetoPruebaDos[regalo.category][regaloName] + regaloQuantity;
 
+            } else {
 
-                objetoPrueba[regaloCategory][regaloName] = objetoPrueba[regaloCategory][regaloName] + regalo2Quantity;
-
-                console.log(objetoPrueba);
+                objetoPruebaDos[regalo.category][regaloName] = regaloQuantity;
             }
+        } else {
+
+            objetoPruebaDos[regalo.category] = { [regaloName]: regaloQuantity };
+
         }
 
-        console.log(objetoPrueba);
     }
-    resultadoJson[regaloCategoria] = {};
+    // resultadoJson[regaloCategoria] = {};
+    console.log(objetoPruebaDos);
 }
-console.log(resultadoJson);
+// console.log(objetoPrueba);
 
 var resultadoFInal = ordenarRegalos();
 
 console.log(resultadoFInal);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for (let j = i + 1; j < inventory.length; j++) {
+//     var regalo2 = inventory[j];
+
+//     var regalo2Name = regalo2.name;
+//     var regalo2Quantity = regalo2.quantity;
+//     var regalo2Category = regalo2.category;
+
