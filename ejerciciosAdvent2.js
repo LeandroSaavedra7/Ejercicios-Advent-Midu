@@ -26,32 +26,54 @@
 // ********
 
 
-const nombres = ["miduscapo"];
+const nombres = ["miduscapo", "leveling", "faseee"];
 var cuadroCompleto = [];
 var marco = [];
 var papel = "*";
 var espacio = " ";
+var envoltorio = "";
 
 function encuadrar(nombres) {
 
     for (let i = 0; i < nombres.length; i++) {
 
         var nombre = nombres[i];
-        var nombreLargo = nombre.length + 4;
+        var nombreDos = nombres[i + 1];
+        var nombreMasLargo = 0;
 
-        for (let j = 0; j < nombreLargo; j++) {
 
-            marco = marco + papel;
+        if (nombre.length >= nombreDos.length) {
+            console.log("probandooo");
+            nombreMasLargo = nombres[i];
+            console.log(nombreMasLargo);
         }
 
-        var nombreConEspacio = papel + espacio + nombre + espacio + papel;
+        for (let j = 0; j < nombreMasLargo.length; j++) {
+            envoltorio = envoltorio + papel;
+        }
 
-        console.log(marco);
-        console.log(nombreConEspacio);
-        console.log(marco);
 
-        return 
+        var cuadroNom = nombre + " " + nombre;
+        var cuadroFinal = envoltorio + cuadroNom + envoltorio;
+
+        console.log(cuadroFinal);
+
     }
+    var nombreLargo = nombre.length + 4;
+
+    for (let j = 0; j < nombreLargo; j++) {
+
+        marco = marco + papel;
+    }
+
+    var nombreConEspacio = papel + espacio + nombre + espacio + papel;
+
+    // console.log(marco);
+    //console.log(nombreConEspacio);
+    //console.log(marco);
+
+    // return 
 }
+
 const resultado = encuadrar(nombres);
 console.log(resultado);
