@@ -46,7 +46,7 @@ function limpiarLista(regalos) {
         //    arrayVacio.push(arrayOrdenado[arrayOrdenado.length]);
 
         } 
-    }
+    } 
 
     return arrayVacio;
 }

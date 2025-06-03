@@ -1,3 +1,4 @@
+
 // Papá Noel 🎅 quiere enmarcar los nombres de los niños buenos para decorar su taller 🖼️,
 // pero el marco debe seguir unas reglas específicas. Tu tarea es ayudar a los elfos a crear este marco mágico.
 
@@ -26,54 +27,43 @@
 // ********
 
 
-const nombres = ["miduscapo", "leveling", "faseee"];
-var cuadroCompleto = [];
-var marco = [];
-var papel = "*";
-var espacio = " ";
-var envoltorio = "";
+const nombres = ["midu", "probando", "tuv"];
 
 function encuadrar(nombres) {
+
+    var papel = "*";
+    var envoltorio = "";
+    var cuadroNom = "";
+    var nombreMasLargo = "";
 
     for (let i = 0; i < nombres.length; i++) {
 
         var nombre = nombres[i];
-        var nombreDos = nombres[i + 1];
-        var nombreMasLargo = 0;
 
-
-        if (nombre.length >= nombreDos.length) {
-            console.log("probandooo");
-            nombreMasLargo = nombres[i];
-            console.log(nombreMasLargo);
+        if (nombre.length >= nombreMasLargo.length) {
+            nombreMasLargo = nombre;
         }
-
-        for (let j = 0; j < nombreMasLargo.length; j++) {
-            envoltorio = envoltorio + papel;
-        }
-
-
-        var cuadroNom = nombre + " " + nombre;
-        var cuadroFinal = envoltorio + cuadroNom + envoltorio;
-
-        console.log(cuadroFinal);
-
-    }
-    var nombreLargo = nombre.length + 4;
-
-    for (let j = 0; j < nombreLargo; j++) {
-
-        marco = marco + papel;
     }
 
-    var nombreConEspacio = papel + espacio + nombre + espacio + papel;
+    for (let j = 0; j < nombreMasLargo.length + 4; j++) {
 
-    // console.log(marco);
-    //console.log(nombreConEspacio);
-    //console.log(marco);
+        envoltorio = envoltorio + papel;
+    }
 
-    // return 
+    for (let k = 0; k < nombres.length; k++) {
+        var nombre = nombres[k];
+        var espacio = nombreMasLargo.length - nombre.length + 1;
+        cuadroNom = cuadroNom + "* " + nombre + " ".repeat(espacio) + "*" + "\n";
+    }
+
+    var cuadroFinal = envoltorio + "\n" + cuadroNom + envoltorio;
+    return cuadroFinal
 }
 
 const resultado = encuadrar(nombres);
 console.log(resultado);
+
+
+
+
+
